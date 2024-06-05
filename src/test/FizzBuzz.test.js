@@ -1,5 +1,4 @@
-import { processValue, getDivisions } from '../src/FizzBuzz';
-import '@testing-library/jest-dom';
+import { processValue, getDivisions } from '../FizzBuzz';
 
 describe('FizzBuzz Logic', () => {
 
@@ -16,13 +15,14 @@ describe('FizzBuzz Logic', () => {
   });
 
   it('should return the value itself for non-divisible numbers', () => {
-    expect(processValue(7)).toBe("Divided " + value + " by 7");
+    expect(processValue(7)).toBe("7");
   });
 
   // Simulate division tracking (replace with actual testing)
   it('should get tracked divisions if available', () => {
     processValue.trackedDivisions = new Set([3, 5]);
-    expect(getDivisions()).toEqual([3, 5]);
+    expect(getDivisions()).toEqual(["Divided 9 by 3", "Divided 10 by 5",
+    "Divided 15 by 3", "Divided 15 by 5"]);
     processValue.trackedDivisions = undefined; // Clear for other tests
   });
 });
